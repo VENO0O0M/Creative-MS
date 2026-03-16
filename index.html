@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Interiors | م. محمد سامي للتشطيبات والديكور</title>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            goldLight: '#E3C584',
+                            goldDark: '#9A7B3E',
+                            dark: '#121212',
+                            gray: '#242424',
+                            lightGray: '#333333'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        
+        .gold-text-gradient {
+            background: linear-gradient(to right, #C5A059, #E3C584, #C5A059);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gold-bg-gradient {
+            background: linear-gradient(to right, #9A7B3E, #C5A059);
+        }
+
+        .gold-bg-gradient:hover {
+            background: linear-gradient(to right, #C5A059, #E3C584);
+        }
+
+        /* Hero Image Overlay */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1));
+        }
+
+        /* Glassmorphism for cards */
+        .glass-card {
+            background: rgba(36, 36, 36, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(197, 160, 89, 0.8);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark/90 backdrop-blur-md border-b border-brand-gold/20" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="text-right leading-none">
+                        <h1 class="text-2xl font-bold tracking-wider gold-text-gradient uppercase" style="font-family: Arial, sans-serif;">
+                            MS
+                        </h1>
+                        <p class="text-xs text-gray-400 tracking-widest mt-1">Creative Interiors</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 space-x-reverse items-center">
+                    <a href="#home" class="text-gray-300 hover:text-brand-gold transition text-sm font-semibold">الرئيسية</a>
+                    <a href="#about" class="text-gray-300 hover:text-brand-gold transition text-sm font-semibold">من نحن</a>
+                    <a href="#services" class="text-gray-300 hover:text-brand-gold transition text-sm font-semibold">خدماتنا</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-brand-gold transition text-sm font-semibold">أعمالنا</a>
+                    <a href="#contact" class="gold-bg-gradient text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-brand-gold/20">تواصل معنا</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-gold hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-gray border-t border-brand-gold/20">
+            <div class="px-4 pt-2 pb-6 space-y-1 text-center">
+                <a href="#home" class="block px-3 py-3 text-white hover:bg-brand-gold/10 rounded-md">الرئيسية</a>
+                <a href="#about" class="block px-3 py-3 text-white hover:bg-brand-gold/10 rounded-md">من نحن</a>
+                <a href="#services" class="block px-3 py-3 text-white hover:bg-brand-gold/10 rounded-md">خدماتنا</a>
+                <a href="#portfolio" class="block px-3 py-3 text-white hover:bg-brand-gold/10 rounded-md">أعمالنا</a>
+                <a href="#contact" class="block px-3 py-3 text-brand-gold font-bold hover:bg-brand-gold/10 rounded-md">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000" alt="تصميم داخلي فخم" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            <p class="text-brand-gold font-bold tracking-widest mb-4 uppercase text-sm md:text-base">Eng / Mohamed Samy</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                تصميمات داخلية تعكس <br /> <span class="gold-text-gradient">شخصيتك ورؤيتك</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                متخصصون في التصميم الداخلي، التشطيبات المتكاملة، والديكور بأعلى معايير الجودة والاحترافية.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portfolio" class="px-8 py-4 bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark rounded-full font-bold transition duration-300">
+                    استكشف أعمالنا
+                </a>
+                <a href="https://wa.me/201069492012" target="_blank" class="px-8 py-4 gold-bg-gradient text-white rounded-full font-bold shadow-lg shadow-brand-gold/30 hover:shadow-brand-gold/50 transition duration-300 flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    تواصل عبر واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 border-2 border-brand-gold/30 rounded-2xl transform translate-x-4 translate-y-4"></div>
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" alt="عن الشركة" class="relative z-10 rounded-2xl shadow-2xl w-full object-cover h-[500px]" />
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-brand-gold mb-2 tracking-wider">من نحن</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">م/ محمد سامي للتشطيبات والديكور</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        نحن شركة رائدة في مجال التصميم الداخلي والتشطيبات. نؤمن بأن المساحات التي نعيش ونعمل فيها تؤثر بشكل مباشر على جودة حياتنا. لذلك، نكرس خبراتنا لتحويل الأفكار إلى واقع ملموس يجمع بين الفخامة والعملية.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        منذ انطلاقنا، نجحنا في تنفيذ العديد من المشاريع السكنية والتجارية، معتمدين على فريق من أمهر المهندسين والفنيين، واستخدام أجود الخامات لضمان تسليم مشاريع متكاملة تليق بعملائنا.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-r-2 border-brand-gold pr-4">
+                            <h4 class="text-4xl font-bold gold-text-gradient mb-1">+10</h4>
+                            <p class="text-gray-400 text-sm">سنوات خبرة</p>
+                        </div>
+                        <div class="border-r-2 border-brand-gold pr-4">
+                            <h4 class="text-4xl font-bold gold-text-gradient mb-1">+150</h4>
+                            <p class="text-gray-400 text-sm">مشروع مكتمل</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-brand-gray relative border-t border-brand-lightGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-brand-gold mb-2 tracking-wider">خدماتنا</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white">حلول متكاملة لمشروعك</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark rounded-full flex items-center justify-center border border-brand-gold/30 mb-6 group-hover:bg-brand-gold transition duration-300">
+                        <i data-lucide="pen-tool" class="w-8 h-8 text-brand-gold group-hover:text-brand-dark transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">التصميم الداخلي</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        نقدم تصاميم 3D واقعية ومبتكرة تناسب ذوقك وتستغل المساحات بأفضل شكل ممكن.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark rounded-full flex items-center justify-center border border-brand-gold/30 mb-6 group-hover:bg-brand-gold transition duration-300">
+                        <i data-lucide="hammer" class="w-8 h-8 text-brand-gold group-hover:text-brand-dark transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">التشطيبات المتكاملة</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        تنفيذ كافة بنود التشطيبات من التأسيس وحتى التسليم على المفتاح بأعلى جودة.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark rounded-full flex items-center justify-center border border-brand-gold/30 mb-6 group-hover:bg-brand-gold transition duration-300">
+                        <i data-lucide="sofa" class="w-8 h-8 text-brand-gold group-hover:text-brand-dark transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">الديكور والفرش</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        مساعدتك في اختيار الأثاث، الإضاءة، والألوان لتكتمل اللوحة الفنية لمنزلك.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-2xl text-center group">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark rounded-full flex items-center justify-center border border-brand-gold/30 mb-6 group-hover:bg-brand-gold transition duration-300">
+                        <i data-lucide="ruler" class="w-8 h-8 text-brand-gold group-hover:text-brand-dark transition duration-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">إشراف هندسي</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        إشراف هندسي دقيق على كافة مراحل التنفيذ لضمان مطابقة المواصفات والجدول الزمني.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-sm font-bold text-brand-gold mb-2 tracking-wider">أعمالنا</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">مشاريع نفخر بها</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800" alt="مشروع 1" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-brand-gold font-bold text-xl mb-1">فيلا سكنية - التجمع الخامس</h4>
+                        <p class="text-white text-sm">تصميم وتشطيب متكامل (Modern Classic)</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="مشروع 2" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-brand-gold font-bold text-xl mb-1">شقة سكنية - الشيخ زايد</h4>
+                        <p class="text-white text-sm">تصميم عصري (Ultra Modern)</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="مشروع 3" class="w-full h-80 object-cover transition duration-500 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-brand-gold font-bold text-xl mb-1">مقر إداري - المعادي</h4>
+                        <p class="text-white text-sm">تصميم مساحات عمل (Corporate)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/201069492012" target="_blank" class="inline-block px-8 py-3 bg-transparent border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark rounded-full transition duration-300">
+                    طلب سابقة الأعمال كاملة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-brand-gray border-t border-brand-lightGray relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-sm font-bold text-brand-gold mb-2 tracking-wider">تواصل معنا</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">دعنا نبدأ مشروعك القادم</h3>
+                    <p class="text-gray-400 mb-10 leading-relaxed">
+                        نحن هنا للإجابة على كافة استفساراتكم ومساعدتكم في تحقيق رؤيتكم. تواصل معنا الآن للحصول على استشارة مجانية أو طلب تسعير لمشروعك.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-gold/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5 text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">رقم الهاتف / واتساب</h5>
+                                <a href="tel:+201069492012" dir="ltr" class="text-gray-400 hover:text-brand-gold transition inline-block text-left">+20 10 69492012</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-gold/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5 text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">البريد الإلكتروني</h5>
+                                <a href="mailto:info@ms-interiors.com" class="text-gray-400 hover:text-brand-gold transition">info@ms-interiors.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-dark border border-brand-gold/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold mb-1">المقر الرئيسي</h5>
+                                <p class="text-gray-400">القاهرة، جمهورية مصر العربية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-2xl font-bold text-white mb-6">أرسل رسالة</h4>
+                    <form onsubmit="event.preventDefault(); alert('شكراً لتواصلك معنا. سيتم الرد عليك في أقرب وقت.');" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="الاسم الكريم" required class="w-full bg-brand-dark border border-brand-lightGray rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="رقم الهاتف" required class="w-full bg-brand-dark border border-brand-lightGray rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition">
+                        </div>
+                        <div>
+                            <select class="w-full bg-brand-dark border border-brand-lightGray rounded-lg px-4 py-3 text-gray-400 focus:outline-none focus:border-brand-gold transition">
+                                <option value="" disabled selected>نوع الخدمة المطلوبة</option>
+                                <option value="design">تصميم داخلي</option>
+                                <option value="finishing">تشطيب متكامل</option>
+                                <option value="decoration">ديكور وفرش</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="تفاصيل المشروع أو الاستفسار" required class="w-full bg-brand-dark border border-brand-lightGray rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-gold transition resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full gold-bg-gradient text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-brand-gold/30 transition duration-300">
+                            إرسال الطلب
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-12 pb-6 border-t border-brand-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block mb-6">
+                <h2 class="text-3xl font-bold tracking-wider gold-text-gradient uppercase" style="font-family: Arial, sans-serif;">MS</h2>
+                <p class="text-sm text-gray-400 tracking-widest mt-1">CREATIVE INTERIORS</p>
+                <p class="text-xs text-brand-gold mt-1">ENG/MOHAMED SAMY</p>
+            </div>
+            
+            <div class="flex justify-center gap-4 mb-8">
+                <a href="#" class="w-10 h-10 rounded-full bg-brand-gray border border-brand-gold/30 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-gold transition">
+                    <i data-lucide="facebook" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-brand-gray border border-brand-gold/30 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-gold transition">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/201069492012" target="_blank" class="w-10 h-10 rounded-full bg-brand-gray border border-brand-gold/30 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                </a>
+            </div>
+            
+            <p class="text-gray-500 text-sm">
+                &copy; 2024 MS Creative Interiors. جميع الحقوق محفوظة.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201069492012" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg shadow-[#25D366]/40 hover:scale-110 hover:shadow-2xl transition-all duration-300 z-50 group flex items-center justify-center">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="absolute right-14 bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-md pointer-events-none">
+            تواصل معنا الآن
+        </span>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('border-brand-gold/20', 'border-brand-gold/50');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.replace('border-brand-gold/50', 'border-brand-gold/20');
+            }
+        });
+    </script>
+</body>
+</html>
+
